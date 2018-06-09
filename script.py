@@ -11,8 +11,9 @@ def find_file(file_path, o_post, lis):
 			find_file(son_path,o_post,lis)
 		else:
 			file_ext = str(i.split('.')[-1])
-		if file_ext == o_post and not(os.path.isdir(son_path)):
-			lis.append(os.path.join(son_path))
+			if file_ext == o_post and not(os.path.isdir(son_path)):
+				#print(os.path.join(son_path))
+				lis.append(os.path.join(son_path))
 			#readFile(os.path.join(son_path))
 	return lis
 	
@@ -85,7 +86,7 @@ def findCloumn(str,form,ls):
 				if combo == form:
 					ls.append(i);
 				split_combo = combo.strip()
-				first = split_combo[0]
+				#first = split_combo[0]
 				combo = ''
 				for inx,c in enumerate(split_combo):
 					if inx != 0:
@@ -93,10 +94,13 @@ def findCloumn(str,form,ls):
 				i=i+1
 	return ls				
 		
-		
+	
 f_path = r'C:\Users\lihro\Desktop\Python'
 old_post = 'js'
 files = find_file(f_path, old_post, [])
 for file in files:
 	alter(file,"!=","!==")
 	alter(file,"==","===")
+"""
+print(findCloumn('i=23456i=iasda ','i=',[]))
+"""
